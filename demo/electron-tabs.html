@@ -2,11 +2,11 @@
 <html >
 
 <head>
-    <link rel="stylesheet" href="../electron-tabs.css">
+    <link rel="stylesheet" href="electron-tabs.css">
 </head>
-<body style="-webkit-app-region: drag" >
+<body>
 
-<div class="etabs-tabgroup">
+<div class="etabs-tabgroup" style="-webkit-app-region: drag">
     <div id="topbar">
 
     </div>
@@ -20,21 +20,19 @@
 
 </div>
 <div id="loading">
-  <img src="../img/Rolling.svg" >
+  <img src="img/Rolling.svg" >
 </div>
 <div class="plusbutton" id="plus" onclick="addtab();">
-  <img src="../img/add.svg" width="60%">
+  <img src="img/add.svg" width="60%">
 </div>
 <script>
-    //const TabGroup = require('electron-tabs') normally but for demo :
-    const TabGroup = require("../index");
+    const TabGroup = require('electron-tabs');
 
     let tabGroup = new TabGroup();
     function addtab(){
       tabGroup.addTab({ icon: '', title: '', src: 'chooseApp.html', visible:true, active: true });
 
         var webview = document.querySelector('.etabs-views .visible');
-        var a = true;
           webview.addEventListener("did-start-loading", function() {
             webview.addEventListener("did-navigate", function () {
                webview.style.display = "none";
@@ -49,22 +47,21 @@
             document.getElementById('plus').style.display = 'flex'; 
 
             if (webview.getURL() == "https://trello.com/") {
-
-              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/trello.svg"  width="80%"/>';
+              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/trello.svg"  width="80%"/>';
             }
             if (webview.getURL() == "https://evernote.com/") {
-              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/evernote-logo.svg" width="80%" />';
+              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/evernote-logo.svg" width="80%" />';
             } if (webview.getURL() == "https://bitbucket.org/") {
-              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/bitbucket-logotype-camera-lens-in-perspective.svg" width="80%" />';
+              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/bitbucket-logotype-camera-lens-in-perspective.svg" width="80%" />';
             } if (webview.getURL() == "https://slack.com/") {
-              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/slack-symbol.svg" width="80%" />';
+              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/slack-symbol.svg" width="80%" />';
             } if (webview.getURL() == "https://linkedin.com/") {
-              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/linkedin.svg" width="80%" />';
+              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/linkedin.svg" width="80%" />';
             }
             if (webview.getURL() == "http://adwords.google.com/") {
-              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/adwords.svg" width="80%" />';
+              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/adwords.svg" width="80%" />';
             } if (webview.getURL() == "https://stackoverflow.com/") {
-              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/stack-overflow.svg" width="80%" />';
+              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/stack-overflow.svg" width="80%" />';
             }
             document.getElementById('loading').style.display = "none";
             webview.style.display = "flex";

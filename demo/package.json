@@ -1,4 +1,48 @@
 {
-  "name": "electron-tabs-demo",
-  "main": "app.js"
+  "name": "Webspaces",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "your app description",
+  "author": "Sam <sam.mamane@hotmail.fr>",
+  "main": "app.js",
+  "scripts": {
+    "postinstall": "install-app-deps",
+    "start": "npm install && electron .",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "build": {
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "Squirrel",
+      "icon": "build/icon.ico"
+    }
+  },
+  "dependencies": {
+    "electron-window-state-manager": "0.3.2",
+    "electron-tabs": "0.9.0"
+  },
+  "devDependencies": {
+    "electron": "latest",
+    "electron-builder": "^19.53.7"
+  }
 }
