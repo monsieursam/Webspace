@@ -2,6 +2,7 @@ html {
   height: 100%;
 }
 body {
+    display: flex;
   min-height : 100%;
   margin: 0;
   padding: 0;
@@ -23,26 +24,46 @@ body {
 
 }
 
-.etabs-tabs,.plusbutton {
+.etabs-tabs {
   float: left;
 
 }
+.plusbutton,
+.etabs-tab{
+    cursor: pointer;
+}
 .plusbutton, .etabs-tab{
+    
+    display: flex;
   border-radius: 5px;
   margin: 10px;
   height: 60px;
   width:  60px;
-  background-color: red;
+}
+.plusbutton {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    background: #ECECEC;
+    opacity: 0.7;
+}
+.plusbutton:hover {
+    
+    opacity: 1;
+}
+.plusbutton img{
+    margin: 0 auto;
+    display: block;
 }
 .etabs-tab {
     display: none;
     position: relative;
     color: #333;
-
     font: caption;
     font-size: 14px;
     background-color: grey;
     cursor: default;
+
 }
 
 /* Dragula */
@@ -56,6 +77,7 @@ body {
 
 .etabs-tab.visible {
     display: inline-block;
+    display: flex
 }
 
 .etabs-tab.active {
@@ -104,12 +126,14 @@ body {
 
 .etabs-tab-icon {
     display: inline-block;
-    height: 16px;
-}
+    padding: 5px;
 
+}
+.etabs-tab img {
+  margin: auto;
+}
 .etabs-tab-icon img {
-    max-width: 16px;
-    max-height: 16px;
+    width: 80%;
 }
 
 .etabs-tab-title {
@@ -147,7 +171,35 @@ body {
      top: 0px;
 
 }
-
-.etab-view {
-
+.choose_app{
+	margin:20px;
+  padding: 20px;
+  vertical-align:middle;
+  display:inline-block;
+	background: #ECECEC;
+  border-radius: 5px;
+	overflow: hidden;
+	position: relative;
+  text-align:center;
+}
+.choose_app:hover{
+  background: #6C7A89;
+  color: #ECECEC;
+}
+#listemenu{
+  height:auto;
+ overflow: hidden;
+ top:0px;
+ left:0px;
+ width: 100%; margin:0px auto;
+  position: relative;
+ text-align:center;
+}
+a{
+  text-decoration: none;
+  color: #6C7A89;
+}
+#loading {
+ display: none;
+ margin: auto;
 }

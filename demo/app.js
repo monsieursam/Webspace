@@ -14,19 +14,14 @@ app.on('ready', () => {
     // you can assign the properties of the mainWindowState.
     // If a window with the name 'main' was saved before,
     // the saved values will now be assigned to the BrowserWindow again
-    const mainWindow = new BrowserWindow({
-        titleBarStyle: 'hidden',
+    const mainWindow = new BrowserWindow({titleBarStyle: 'hidden',
         width: mainWindowState.width,
         height: mainWindowState.height,
         x: mainWindowState.x,
         y: mainWindowState.y
     });
     mainWindow.loadURL('file://' + __dirname + '/electron-tabs.html');
-    mainWindow.webContents.on('new-window', function(e, url) {
-      e.preventDefault();
-      require('electron').shell.openExternal(url);
-    });
-    
+
     // You can check if the window was closed in a maximized saveState
     // If so you can maximize the BrowserWindow again
     if (mainWindowState.maximized) {
@@ -38,4 +33,31 @@ app.on('ready', () => {
     mainWindow.on('close', () => {
         mainWindowState.saveState(mainWindow);
     });
+
 });
+app.on('window-all-closed', () => {
+if (process.platform !== 'darwin') {
+  app.quit()
+  }
+})
+app.on('activate', () => {
+  const mainWindow = new BrowserWindow({titleBarStyle: 'hidden',
+      width: mainWindowState.width,
+      height: mainWindowState.height,
+      x: mainWindowState.x,
+      y: mainWindowState.y
+  });
+  mainWindow.loadURL('file://' + __dirname + '/electron-tabs.html');
+
+  // You can check if the window was closed in a maximized saveState
+  // If so you can maximize the BrowserWindow again
+  if (mainWindowState.maximized) {
+      mainWindow.maximize();
+  }
+
+  // Don't forget to save the current state
+  // of the Browser window when it's about to be closed
+  mainWindow.on('close', () => {
+      mainWindowState.saveState(mainWindow);
+  });
+})

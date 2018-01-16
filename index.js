@@ -168,7 +168,6 @@ class Tab extends EventEmitter {
         this.closable = args.closable === false ? false : true;
         this.webviewAttributes = args.webviewAttributes || {};
         this.webviewAttributes.src = args.src;
-        this.webviewAttributes.partition = args.src;
         this.tabElements = {};
         TabPrivate.initTab.bind(this)();
         TabPrivate.initWebview.bind(this)();
