@@ -38,6 +38,44 @@
                webview.style.display = "none";
               document.getElementById('loading').style.display = "flex";
               document.getElementById('plus').style.display = 'none'; 
+              if (webview.getURL() == "https://www.coursera.org/") {
+                
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/coursera.png"  width="80%"/>';
+              }
+              if (webview.getURL() == "https://trello.com/") {
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/trello.svg"  width="80%"/>';
+              }
+              if (webview.getURL() == "https://www.fun-mooc.fr/") {
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/mooc_fun.png"  width="80%"/>';
+              }
+              if (webview.getURL() == "https://evernote.com/") {
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/evernote-logo.svg" width="80%" />';
+              } if (webview.getURL() == "https://bitbucket.org/") {
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/bitbucket-logotype-camera-lens-in-perspective.svg" width="80%" />';
+              } if (webview.getURL() == "https://www.slack.com/") {
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/slack-symbol.svg" width="80%" />';
+              } 
+              if (webview.getURL() == "https://www.linkedin.com/") {
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/linkedin.svg" width="80%" />';
+              }
+              if (webview.getURL() == "http://www.adwords.google.com/") {
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/adwords.svg" width="80%" />';
+              } 
+              if (webview.getURL() == "https://stackoverflow.com/") {
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/stack-overflow.svg" width="80%" />';
+              }
+              if (webview.getURL() == "https://www.codecademy.com/") {
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/CodeAC.png" width="80%" />';
+              }
+              if (webview.getURL() == "https://calendar.google.com/calendar" || webview.getURL() == "https://calendar.google.com/calendar/r") {
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/calendar.svg" width="80%" />';
+              }
+              if (webview.getURL() == "https://www.ted.com" ) {
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/ted-logo.svg" width="80%" />';
+              }
+              if (webview.getURL() == "https://www.asana.com") {
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/asana.svg" width="80%" />';
+              }
             });
             
              
@@ -45,24 +83,6 @@
           });
           webview.addEventListener("did-stop-loading", function() { 
             document.getElementById('plus').style.display = 'flex'; 
-
-            if (webview.getURL() == "https://trello.com/") {
-              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/trello.svg"  width="80%"/>';
-            }
-            if (webview.getURL() == "https://evernote.com/") {
-              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/evernote-logo.svg" width="80%" />';
-            } if (webview.getURL() == "https://bitbucket.org/") {
-              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/bitbucket-logotype-camera-lens-in-perspective.svg" width="80%" />';
-            } if (webview.getURL() == "https://slack.com/") {
-              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/slack-symbol.svg" width="80%" />';
-            } if (webview.getURL() == "https://linkedin.com/") {
-              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/linkedin.svg" width="80%" />';
-            }
-            if (webview.getURL() == "http://adwords.google.com/") {
-              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/adwords.svg" width="80%" />';
-            } if (webview.getURL() == "https://stackoverflow.com/") {
-              document.querySelector('.etabs-tabs .active').innerHTML = '<img src="img/stack-overflow.svg" width="80%" />';
-            }
             document.getElementById('loading').style.display = "none";
             webview.style.display = "flex";
             

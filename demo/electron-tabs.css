@@ -1,7 +1,21 @@
+:not(input):not(textarea),
+:not(input):not(textarea)::after,
+:not(input):not(textarea)::before {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+input,
+button,
+textarea,
+ :focus {
+    outline: none; // You should add some other style for :focus to help UX/a11y
+}
 html {
   height: 100%;
 }
 body {
+    font-family: 'Open sans';
     display: flex;
   min-height : 100%;
   margin: 0;
@@ -42,14 +56,18 @@ body {
 }
 .plusbutton {
     position: absolute;
-    right: 0px;
     bottom: 0px;
+    left: 0px;
     background: #ECECEC;
     opacity: 0.7;
 }
-.plusbutton:hover {
-    
+.plusbutton:hover{
+    cursor: pointer;
     opacity: 1;
+}
+.etabs-tab:hover {
+    cursor: pointer;
+    background-color: rgb(156, 156, 156);
 }
 .plusbutton img{
     margin: 0 auto;
@@ -132,6 +150,7 @@ body {
 .etabs-tab img {
   margin: auto;
 }
+
 .etabs-tab-icon img {
     width: 80%;
 }
@@ -171,9 +190,15 @@ body {
      top: 0px;
 
 }
+.sous_choose{
+    display: flex;
+    height: 130px;
+    width: 130px;
+}
 .choose_app{
+    width: 130px;
+    height: 130px;
 	margin:20px;
-  padding: 20px;
   vertical-align:middle;
   display:inline-block;
 	background: #ECECEC;
@@ -182,9 +207,13 @@ body {
 	position: relative;
   text-align:center;
 }
+    .sous_choose img {
+    margin: auto;
+}
 .choose_app:hover{
   background: #6C7A89;
   color: #ECECEC;
+  cursor: pointer;
 }
 #listemenu{
   height:auto;
