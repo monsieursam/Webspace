@@ -1,6 +1,7 @@
 directories:
   output: dist
   buildResources: build
+appId: com.sammamane.webspace
 dmg:
   contents:
     - x: 110

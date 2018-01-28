@@ -1,0 +1,234 @@
+:not(input):not(textarea),
+:not(input):not(textarea)::after,
+:not(input):not(textarea)::before {
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+input,
+button,
+textarea,
+ :focus {
+    outline: none;
+}
+html {
+  height: 100%;
+}
+body {
+    font-family: 'Open sans';
+    display: flex;
+  min-height : 100%;
+  margin: 0;
+  padding: 0;
+}
+#topbar{
+  background-color: #293E49;
+  height: 20px;
+}
+.etabs-tabgroup {
+    min-height: 100vh;
+    width: 80px;
+    float: left;
+    background-color: #293E49;
+    cursor: default;
+    font: caption;
+    font-size: 14px;
+    -webkit-user-select: none;
+    user-select: none;
+
+}
+
+.etabs-tabs {
+  float: left;
+
+}
+.plusbutton,
+.etabs-tab{
+    cursor: pointer;
+}
+.plusbutton, .etabs-tab{
+    
+    display: flex;
+  border-radius: 5px;
+  margin: 10px;
+  height: 60px;
+  width:  60px;
+}
+.plusbutton {
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background: #ECECEC;
+    opacity: 0.7;
+}
+.plusbutton:hover{
+    cursor: pointer;
+    opacity: 1;
+}
+.etabs-tab:hover {
+    cursor: pointer;
+    background-color: rgb(156, 156, 156);
+}
+.plusbutton img{
+    margin: 0 auto;
+    display: block;
+}
+.etabs-tab {
+    display: none;
+    position: relative;
+    color: #333;
+    font: caption;
+    font-size: 14px;
+    background-color: grey;
+    cursor: default;
+
+}
+
+/* Dragula */
+.etabs-tab.gu-mirror {
+    padding-bottom: 0;
+}
+
+.etabs-tab:first-child {
+    border-left: none;
+}
+
+.etabs-tab.visible {
+    display: inline-block;
+    display: flex
+}
+
+.etabs-tab.active {
+    background: #fff;
+}
+
+.etabs-tab.flash {
+    background: linear-gradient(to bottom, rgba(255,243,170,1) 0%,rgba(255,227,37,1) 100%);
+}
+
+.etabs-buttons {
+    float: left;
+}
+
+.etabs-buttons button {
+
+    color: #333;
+    background: none;
+    border: none;
+    font-size: 12px;
+    border-radius: 2px;
+    width: 20px;
+    text-align: center;
+    padding: 4px 0;
+}
+
+.etabs-buttons button:hover {
+    color: #eee;
+    background-color: #aaa;
+}
+
+.etabs-tab-badge {
+    position: absolute;
+    right: 0;
+    top: -7px;
+    background: red;
+    border-radius: 100%;
+    text-align: center;
+    font-size: 10px;
+    padding: 0 5px;
+}
+
+.etabs-tab-badge.hidden {
+    display: none;
+}
+
+.etabs-tab-icon {
+    display: inline-block;
+    padding: 5px;
+
+}
+.etabs-tab img {
+  margin: auto;
+}
+
+.etabs-tab-icon img {
+    width: 80%;
+}
+
+.etabs-tab-title {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.etabs-tab-buttons {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    display: inline-block;
+}
+
+.etabs-tab-buttons button {
+    display: inline-block;
+    color: #333;
+    background: none;
+    border: none;
+    width: 20px;
+    text-align: center;
+    border-radius: 2px;
+}
+
+.etabs-tab-buttons button:hover {
+    color: #eee;
+    background-color: #aaa;
+}
+
+.etabs-views {
+    width : calc(100% - 80px);
+    height: 100vh;
+    position: absolute;
+     right: 0px;
+     top: 0px;
+
+}
+.sous_choose{
+    display: flex;
+    height: 130px;
+    width: 130px;
+}
+.choose_app{
+    width: 130px;
+    height: 130px;
+	margin:20px;
+  vertical-align:middle;
+  display:inline-block;
+	background: #ECECEC;
+  border-radius: 5px;
+	overflow: hidden;
+	position: relative;
+  text-align:center;
+}
+    .sous_choose img {
+    margin: auto;
+}
+.choose_app:hover{
+  background: #6C7A89;
+  color: #ECECEC;
+  cursor: pointer;
+}
+#listemenu{
+  height:auto;
+ overflow: hidden;
+ top:0px;
+ left:0px;
+ width: 100%; margin:0px auto;
+  position: relative;
+ text-align:center;
+}
+a{
+  text-decoration: none;
+  color: #6C7A89;
+}
+#loading {
+ display: none;
+ margin: auto;
+}

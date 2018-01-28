@@ -2,7 +2,7 @@
   "name": "Webspaces",
   "version": "1.0.0",
   "license": "MIT",
-  "description": "your app description",
+  "description": "A browser to get the job done",
   "author": "Sam <sam.mamane@hotmail.fr>",
   "main": "app.js",
   "scripts": {
@@ -12,6 +12,7 @@
     "dist": "build"
   },
   "build": {
+    "appId": "com.sammamane.webspace",
     "dmg": {
       "contents": [
         {
@@ -38,8 +39,11 @@
     }
   },
   "dependencies": {
+    "ad-block": "^3.1.10",
+    "electron-ad-blocker": "^0.1.3",
+    "electron-tabs": "0.9.0",
     "electron-window-state-manager": "0.3.2",
-    "electron-tabs": "0.9.0"
+    "open": "latest"
   },
   "devDependencies": {
     "electron": "latest",

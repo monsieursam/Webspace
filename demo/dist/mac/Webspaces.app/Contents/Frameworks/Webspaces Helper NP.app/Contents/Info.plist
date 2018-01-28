@@ -9,7 +9,7 @@
     <key>CFBundleExecutable</key>
     <string>Webspaces Helper NP</string>
     <key>CFBundleIdentifier</key>
-    <string>com.electron.webspaces.helper.NP</string>
+    <string>com.sammamane.webspace.helper.NP</string>
     <key>CFBundleName</key>
     <string>Electron Helper NP</string>
     <key>CFBundlePackageType</key>

@@ -11,7 +11,7 @@
     <key>CFBundleIconFile</key>
     <string>Webspaces.icns</string>
     <key>CFBundleIdentifier</key>
-    <string>com.electron.webspaces</string>
+    <string>com.sammamane.webspace</string>
     <key>CFBundleInfoDictionaryVersion</key>
     <string>6.0</string>
     <key>CFBundleName</key>
@@ -19,9 +19,9 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>0.0.1</string>
+    <string>1.0.0</string>
     <key>CFBundleVersion</key>
-    <string>0.0.1</string>
+    <string>1.0.0</string>
     <key>DTSDKBuild</key>
     <string>14D125</string>
     <key>DTSDKName</key>
@@ -45,6 +45,6 @@
     <key>NSHumanReadableCopyright</key>
     <string>Copyright © 2018 Sam</string>
     <key>AsarIntegrity</key>
-    <string>{"checksums":{"app.asar":"I6/Vh4SqBddGOvrx7hw0JCBKskKrx/wCHmd4uSmwfj+YCTLuyR7t35zJ7vZsykPDNxXEcY7EZN0OS3pZ4rYe9Q==","electron.asar":"N8qMkArPe2Vz78otrpXE3aNxOfCVyD1sqLzLTkMM5HY6Di2N/zv+HQhnv0+XjE/PttdJYymWUm+D0oj39WbLiA=="}}</string>
+    <string>{"checksums":{"app.asar":"ldEtxNPxa5UsGvqaBiEZVt+jhj7tUCuUqUV7vTPtw6Hc4FlGUBLnSXbAuCwfl9PQ0Gu1vRGyO4oCOeRYbW1BNQ==","electron.asar":"N8qMkArPe2Vz78otrpXE3aNxOfCVyD1sqLzLTkMM5HY6Di2N/zv+HQhnv0+XjE/PttdJYymWUm+D0oj39WbLiA=="}}</string>
   </dict>
 </plist>

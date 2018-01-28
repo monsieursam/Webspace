@@ -1,6 +1,7 @@
 const app = require('electron').app;
 const BrowserWindow = require('electron').BrowserWindow;
 const WindowStateManager = require('electron-window-state-manager');
+var Menu = require("electron").Menu;
 
 // Create a new instance of the WindowStateManager
 // and pass it the name and the default properties
@@ -21,7 +22,20 @@ app.on('ready', () => {
         x: mainWindowState.x,
         y: mainWindowState.y
     });
-    mainWindow.loadURL('file://' + __dirname + '/electron-tabs.html');
+    const { blockWindowAds, adBlocker } = require('electron-ad-blocker');
+        blockWindowAds(mainWindow);
+
+        // You can also provide options, like so:
+        blockWindowAds(mainWindow, {});
+
+        // You can also use the adBlocker to provide custom rules as described in the brave ad-block.
+        // (https://github.com/brave/ad-block) For example, blacklist a website:
+        adBlocker.parse('||blacklistwebsite.com')
+        // Check this page for rule info: https://adblockplus.org/filters.
+        // This means you can also whitelist a website:
+        adBlocker.parse('@@||whitelistwebsite.com');
+    
+    mainWindow.loadURL('file://' + __dirname + '/app/html/electron-tabs.html');
 
     // You can check if the window was closed in a maximized saveState
     // If so you can maximize the BrowserWindow again
@@ -41,7 +55,63 @@ app.on('ready', () => {
             mainWindow.hide();
         }
     });
+    // Create the Application's main menu
+    var template = [{
+        label: "Application",
+        submenu: [{
+                label: "About Application",
+                selector: "orderFrontStandardAboutPanel:"
+            },
+            {
+                type: "separator"
+            },
+            {
+                label: "Quit",
+                accelerator: "Command+Q",
+                click: function () {
+                    app.quit();
+                }
+            }
+        ]
+    }, {
+        label: "Edit",
+        submenu: [{
+                label: "Undo",
+                accelerator: "CmdOrCtrl+Z",
+                selector: "undo:"
+            },
+            {
+                label: "Redo",
+                accelerator: "Shift+CmdOrCtrl+Z",
+                selector: "redo:"
+            },
+            {
+                type: "separator"
+            },
+            {
+                label: "Cut",
+                accelerator: "CmdOrCtrl+X",
+                selector: "cut:"
+            },
+            {
+                label: "Copy",
+                accelerator: "CmdOrCtrl+C",
+                selector: "copy:"
+            },
+            {
+                label: "Paste",
+                accelerator: "CmdOrCtrl+V",
+                selector: "paste:"
+            },
+            {
+                label: "Select All",
+                accelerator: "CmdOrCtrl+A",
+                selector: "selectAll:"
+            }
+        ]
+    }];
 
+    Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 });
 app.on('activate', () => mainWindow.show());
 
