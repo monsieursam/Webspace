@@ -17,4 +17,4 @@ linux:
 win:
   target: Squirrel
   icon: build/icon.ico
-electronVersion: 1.7.10
+electronVersion: 1.7.11

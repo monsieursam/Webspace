@@ -39,14 +39,14 @@
     }
   },
   "dependencies": {
-    "ad-block": "^3.1.10",
-    "electron-ad-blocker": "^0.1.3",
-    "electron-tabs": "0.9.0",
-    "electron-window-state-manager": "0.3.2",
+    "ad-block": "latest",
+    "electron-ad-blocker": "latest",
+    "electron-tabs": "latest",
+    "electron-window-state-manager": "latest",
     "open": "latest"
   },
   "devDependencies": {
     "electron": "latest",
-    "electron-builder": "^19.53.7"
+    "electron-builder": "latest"
   }
 }

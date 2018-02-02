@@ -43,10 +43,35 @@
               webview.style.display = "none";
               document.getElementById('loading').style.display = "flex";
               document.getElementById('plus').style.display = 'none'; 
-              if (webview.getURL() == "https://www.coursera.org/") {
-                
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/coursera.png"  width="80%"/>';
-              }
+              var a = 0;
+              var tab = ["https://www.coursera.org/", "https://asana.com/"];
+              while(a<tab.length){
+                if (webview.getURL() == tab[a]){
+                  var cherche = "";
+                  if(tab[a].indexOf('www', 0) == -1){
+                    cherche = "://";
+                  }else{
+                    cherche = "w";
+                  }
+                  var findurl = "";
+                  if (tab[a].indexOf('.org') != -1) {
+                    findurl = ".org";
+                  } else if(tab[a].indexOf('.com') != -1) {
+                    findurl = ".com";
+                  } else{
+                    findurl = ".fr";
+                  }
+                  var yo = tab[a].match(cherche+"(.*)"+findurl);
+                  function fucki(img){
+                    this.src = img+".svg";
+                    return true;
+                  }
+ document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/'+yo[1]+'.png" width="80%" onerror="fucki('+yo[1]+')"/>'
+                    ;
+                }
+                 a++;
+              };
+              
               if (webview.getURL() == "https://trello.com/") {
                 document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/trello.svg"  width="80%"/>';
               }
@@ -69,7 +94,7 @@
               if (webview.getURL() == "https://stackoverflow.com/") {
                 document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/stack-overflow.svg" width="80%" />';
               }
-              if (webview.getURL() == "https://www.codecademy.com/") {
+              if (webview.getURL() == "https://www.codecademy.com/learn") {
                 document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/CodeAC.png" width="80%" />';
               }
               if (webview.getURL() == "https://calendar.google.com/calendar" || webview.getURL() == "https://calendar.google.com/calendar/r") {
@@ -84,8 +109,17 @@
               if (webview.getURL() == "https://www.asana.com") {
                 document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/asana.svg" width="80%" />';
               }
-              if (webview.getURL() == "https://youtube.com") {
+              if (webview.getURL() == "https://www.youtube.com/") {
                 document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/youtube.svg" width="80%" />';
+              }
+              if (webview.getURL() == "https://web.whatsapp.com") {
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/whatsapp.svg" width="80%" />';
+              }
+              if (webview.getURL() == "https://medium.com/") {
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/medium-size.svg" width="80%" />';
+              }
+              if (webview.getURL() == "https://codefights.com/") {
+                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/codefights_logo.png" width="80%" />';
               }
             });
             
@@ -99,12 +133,14 @@
           });
           webview.addEventListener('new-window', function (e) {
             var open = require("open"); 
-            open(e.url);
+            addtab(e.url);
           });
 
           
-      }
+        }
+      
  addtab('');
 </script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </body>
 </html>
