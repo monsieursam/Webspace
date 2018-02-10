@@ -5,6 +5,7 @@
     user-select: none;
 }
 
+
 input,
 button,
 textarea,
@@ -13,8 +14,11 @@ textarea,
 }
 html {
   height: 100%;
+  background-color: #D4D4D4;
 }
 body {
+    background-color: #D4D4D4;
+    cursor: default;
     font-family: 'Open sans';
     display: flex;
   min-height : 100%;
@@ -160,14 +164,17 @@ body {
     margin-left: 10px;
 }
 
-.etabs-tab-buttons {
+.etabs-tab-buttons
+ {
     position: absolute;
     right: 5px;
     bottom: 5px;
-    display: inline-block;
+    display: none;
+
 }
 
-.etabs-tab-buttons button {
+.etabs-tab-buttons button,
+.ptitecroix {
     display: inline-block;
     color: #333;
     background: none;
@@ -177,9 +184,11 @@ body {
     border-radius: 2px;
 }
 
-.etabs-tab-buttons button:hover {
+.etabs-tab-buttons button:hover,
+.ptitecroix:hover {
     color: #eee;
-    background-color: #aaa;
+    background: #ECECEC;
+    cursor: pointer;
 }
 
 .etabs-views {
@@ -231,4 +240,17 @@ a{
 #loading {
  display: none;
  margin: auto;
+}
+.ptitecroix{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    z-index: 1000000;
+    display: inline-block;
+    color: #333;
+    background: none;
+    border: none;
+    width: 20px;
+    text-align: center;
+    border-radius: 2px;
 }

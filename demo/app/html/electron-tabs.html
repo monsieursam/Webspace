@@ -10,12 +10,15 @@
     <div id="topbar">
 
     </div>
-    <div class="etabs-tabs"></div>
+    <div class="etabs-tabs">
+      <div class="ptitecroix" onclick="tabGroup.getActiveTab().close();reap();">&#10006;</div>
+    </div>
     <div class="etabs-buttons"></div>
     
 
     </div>
 </div>
+
 <div class="etabs-views">
 
 </div>
@@ -27,15 +30,23 @@
 </div>
 <script>
     const TabGroup = require('electron-tabs');
-
+  function reap(){
+    document.getElementById('plus').style.display = 'flex';
+    document.getElementById('loading').style.display = "none";
+    webview.style.display = "flex";
+  }
     let tabGroup = new TabGroup();
     function addtab(url){
     
-    if(url == ''){
-      url = "chooseApp.html";
-    }
-    tabGroup.addTab({ icon: '', title: '', src: url, visible:true, active: true });
-    
+          if(url == ''){
+            url = "chooseApp.html";
+          }
+            tabGroup.addTab({ icon: '', title: '', src: url, visible:true, active: true });
+        function imageNotFound(image,yo){
+          console.log("../img/" + yo + ".png");
+            document.getElementById(image).src = "../img/"+yo+".png";
+            image.onerror = "";
+        }
 
         var webview = document.querySelector('.etabs-views .visible');
           webview.addEventListener("did-start-loading", function() {
@@ -44,87 +55,29 @@
               document.getElementById('loading').style.display = "flex";
               document.getElementById('plus').style.display = 'none'; 
               var a = 0;
-              var tab = ["https://www.coursera.org/", "https://asana.com/"];
-              while(a<tab.length){
-                if (webview.getURL() == tab[a]){
+              var tab = webview.getURL();
                   var cherche = "";
-                  if(tab[a].indexOf('www', 0) == -1){
+                  if(tab.indexOf('www', 0) == -1){
                     cherche = "://";
                   }else{
-                    cherche = "w";
+                    cherche = "www.";
                   }
                   var findurl = "";
-                  if (tab[a].indexOf('.org') != -1) {
+                  if (tab.indexOf('.org') != -1) {
                     findurl = ".org";
-                  } else if(tab[a].indexOf('.com') != -1) {
+                  } else if(tab.indexOf('.com') != -1) {
                     findurl = ".com";
                   } else{
                     findurl = ".fr";
                   }
-                  var yo = tab[a].match(cherche+"(.*)"+findurl);
-                  function fucki(img){
-                    this.src = img+".svg";
-                    return true;
-                  }
- document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/'+yo[1]+'.png" width="80%" onerror="fucki('+yo[1]+')"/>'
-                    ;
-                }
-                 a++;
-              };
-              
-              if (webview.getURL() == "https://trello.com/") {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/trello.svg"  width="80%"/>';
-              }
-              if (webview.getURL() == "https://www.fun-mooc.fr/") {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/mooc_fun.png"  width="80%"/>';
-              }
-              if (webview.getURL().indexOf("evernote") >= 0) {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/evernote-logo.svg" width="80%" />';
-              } if (webview.getURL() == "https://bitbucket.org/") {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/bitbucket-logotype-camera-lens-in-perspective.svg" width="80%" />';
-              } if (webview.getURL() == "https://www.slack.com/") {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/slack-symbol.svg" width="80%" />';
-              } 
-              if (webview.getURL() == "https://www.linkedin.com/") {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/linkedin.svg" width="80%" />';
-              }
-              if (webview.getURL() == "http://www.adwords.google.com/") {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/adwords.svg" width="80%" />';
-              } 
-              if (webview.getURL() == "https://stackoverflow.com/") {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/stack-overflow.svg" width="80%" />';
-              }
-              if (webview.getURL() == "https://www.codecademy.com/learn") {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/CodeAC.png" width="80%" />';
-              }
-              if (webview.getURL() == "https://calendar.google.com/calendar" || webview.getURL() == "https://calendar.google.com/calendar/r") {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/calendar.svg" width="80%" />';
-              }
-              if (webview.getURL() == "https://www.ted.com" ) {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/ted-logo.svg" width="80%" />';
-              }
-              if (webview.getURL() == "https://www.duolingo.com/" ) { 
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/owl-happy.png" width="80%" />'; 
-                }
-              if (webview.getURL() == "https://www.asana.com") {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/asana.svg" width="80%" />';
-              }
-              if (webview.getURL() == "https://www.youtube.com/") {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/youtube.svg" width="80%" />';
-              }
-              if (webview.getURL() == "https://web.whatsapp.com") {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/whatsapp.svg" width="80%" />';
-              }
-              if (webview.getURL() == "https://medium.com/") {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/medium-size.svg" width="80%" />';
-              }
-              if (webview.getURL() == "https://codefights.com/") {
-                document.querySelector('.etabs-tabs .active').innerHTML = '<img src="../img/codefights_logo.png" width="80%" />';
-              }
+                  var yo = tab.match(cherche+"(.*)"+findurl);
+                  yo[1] = yo[1].replace('.','');
+                  console.log("../img/"+yo[1]+".svg");
+                  var idImage = 'img_error_' + yo[1];
+                  document.querySelector('.etabs-tabs .active').innerHTML = '<img id="' + idImage +'" src="../img/'+yo[1]+'.svg"  width="80%" />';
+              });
             });
             
-             
-          });
           webview.addEventListener("did-stop-loading", function() {
             document.getElementById('plus').style.display = 'flex'; 
             document.getElementById('loading').style.display = "none";

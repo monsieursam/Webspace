@@ -6,8 +6,8 @@ var Menu = require("electron").Menu;
 // Create a new instance of the WindowStateManager
 // and pass it the name and the default properties
 const mainWindowState = new WindowStateManager('mainWindow', {
-    defaultWidth: 1024,
-    defaultHeight: 768
+    defaultWidth: 700,
+    defaultHeight: 700
 });
 let willQuitApp = false;
 let mainWindow;
@@ -16,11 +16,12 @@ app.on('ready', () => {
     // you can assign the properties of the mainWindowState.
     // If a window with the name 'main' was saved before,
     // the saved values will now be assigned to the BrowserWindow again
-    mainWindow = new BrowserWindow({titleBarStyle: 'hidden',
-        width: mainWindowState.width,
-        height: mainWindowState.height,
-        x: mainWindowState.x,
-        y: mainWindowState.y
+    mainWindow = new BrowserWindow({
+      titleBarStyle: "hidden",
+      width: mainWindowState.width,
+      height: mainWindowState.height,
+      x: mainWindowState.x,
+      y: mainWindowState.y,
     });
     const { blockWindowAds, adBlocker } = require('electron-ad-blocker');
         blockWindowAds(mainWindow);
@@ -52,7 +53,14 @@ app.on('ready', () => {
         } else {
             /* the user only tried to close the window */
             e.preventDefault();
-            mainWindow.hide();
+            if (mainWindow.isFullScreen()) {
+                mainWindow.once('leave-full-screen', function () {
+                    mainWindow.hide();
+                })
+                mainWindow.setFullScreen(false);
+            } else {
+                mainWindow.hide();
+            }
         }
     });
     // Create the Application's main menu

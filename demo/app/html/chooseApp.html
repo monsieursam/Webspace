@@ -4,36 +4,29 @@
     <link rel="stylesheet" href="../css/electron-tabs.css">
 </head>
 <body>
+
   <div id="listemenu">
     <h1>Choose your app</h1>
-    
     <h2>Productivty</h2>
     <a href="https://www.evernote.com/Home.action?login=true">
       <div class="choose_app"><div class="sous_choose">
-          <img src="../img/evernote-logo.svg" width="100px"/></div>
+          <img src="../img/evernote.svg" width="100px"/></div>
       </div>
     </a>
-    
     <a href="http://www.trello.com">
       <div class="choose_app"><div class="sous_choose">
           <img src="../img/trello.svg" width="100px"/></div>
 
       </div>
     </a>
-    
     <a href="http://www.bitbucket.org">
       <div class="choose_app"><div class="sous_choose">
-        <img src="../img/bitbucket-logotype-camera-lens-in-perspective.svg" width="100px"/></div>
-      </div>
-    </a>
-    <a href="http://www.stackoverflow.com/">
-      <div class="choose_app"><div class="sous_choose">
-        <img src="../img/stack-overflow.svg" width="100px" /></div>
+        <img src="../img/bitbucket.svg" width="100px"/></div>
       </div>
     </a>
     <a href="https://calendar.google.com/calendar">
       <div class="choose_app"><div class="sous_choose">
-        <img src="../img/calendar.svg" width="100px" /></div>
+        <img src="../img/calendargoogle.svg" width="100px" /></div>
       </div>
     </a>
     <a href="http://www.firebase.com/">
@@ -54,41 +47,48 @@
         <img src="../img/coursera.png" width="100px" /></div>
       </div>
     </a>
+    <a href="http://www.freecodecamp.org/">
+      <div class="choose_app">
+        <div class="sous_choose">
+        <img src="../img/freecodecamp.svg" width="100px" />
+        </div>
+      </div>
+    </a>
     <a href="https://www.duolingo.com/">
       <div class="choose_app">
         <div class="sous_choose">
-          <img src="../img/owl-happy.png" width="100px" />
+          <img src="../img/duolingo.svg" width="100px" />
         </div>
     
       </div>
     </a>
     <a href="http://www.fun-mooc.fr">
       <div class="choose_app"><div class="sous_choose">
-        <img src="../img/mooc_fun.png" width="100px" /></div>
+        <img src="../img/fun-mooc.svg" width="100px" /></div>
       </div>
     </a>
     <a href="https://www.codecademy.com">
       <div class="choose_app"><div class="sous_choose">
-        <img src="../img/CodeAC.png" width="100px" /></div>
+        <img src="../img/codecademy.png" width="100px" /></div>
       </div>
     </a>
     <a href="http://www.codefights.com">
       <div class="choose_app">
         <div class="sous_choose">
-          <img src="../img/codefights_logo.png" width="100px" />
+          <img src="../img/codefights.svg" width="100px" />
         </div>
       </div>
     </a>
     <h2>Media</h2>
       <a href="http://www.ted.com">
         <div class="choose_app"><div class="sous_choose">
-          <img src="../img/ted-logo.svg" width="100px" /></div>
+          <img src="../img/ted.svg" width="100px" /></div>
         </div>
       </a>
       <a href="https://medium.com/">
         <div class="choose_app">
           <div class="sous_choose">
-            <img src="../img/medium-size.svg" width="100px" />
+            <img src="../img/medium.svg" width="100px" />
           </div>
         </div>
       </a>
@@ -115,19 +115,30 @@
     
     <a href="http://www.slack.com">
       <div class="choose_app"><div class="sous_choose">
-        <img src="../img/slack-symbol.svg" width="100px" /></div>
+        <img src="../img/slack.svg" width="100px" /></div>
       </div>
     </a>
     <a href="https://web.whatsapp.com">
       <div class="choose_app">
         <div class="sous_choose">
-          <img src="../img/whatsapp.svg" width="100px" />
+          <img src="../img/webwhatsapp.svg" width="100px" />
+        </div>
+      </div>
+    </a>
+    <a href="https://www.messenger.com/">
+      <div class="choose_app">
+        <div class="sous_choose">
+          <img src="../img/messenger.svg" width="100px" />
         </div>
       </div>
     </a>
   </div>
   <script>
-
+    function openw(){ 
+      document.getElementById('loading').style.display = "flex"; 
+    }
+    document.getElementsByClassName('choose_app').addEventListener('click',openw());
+    
   </script>
 </body>
 </html>
