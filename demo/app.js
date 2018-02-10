@@ -119,7 +119,7 @@ app.on('ready', () => {
         ]
     }];
 
-    //Menu.setApplicationMenu(Menu.buildFromTemplate(template));
+    Menu.setApplicationMenu(Menu.buildFromTemplate(template));
 });
 app.on('activate', () => mainWindow.show());
 
